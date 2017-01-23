@@ -22,8 +22,8 @@ from __future__ import print_function
 
 from datetime import datetime
 import os.path
-import time
 import sys
+import time
 
 import numpy as np
 import tensorflow as tf
@@ -31,7 +31,6 @@ import tensorflow as tf
 from inception import image_processing
 from inception import inception_model as inception
 from inception.slim import slim
-from tensorflow.python.client import timeline
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -119,7 +118,7 @@ def train(target, dataset, cluster_spec):
         device=slim.variables.VariableDeviceChooser(num_parameter_servers)):
       # Create a variable to count the number of train() calls. This equals the
       # number of updates applied to the variables.
-      global_step = slim.variables.global_step()
+      global_step = tf.Variable(0, name="global_step", trainable=False)
 
       # Calculate the learning rate schedule.
       num_batches_per_epoch = (dataset.num_examples_per_epoch() /
@@ -135,7 +134,7 @@ def train(target, dataset, cluster_spec):
                                       FLAGS.learning_rate_decay_factor,
                                       staircase=True)
       # Add a summary to track the learning rate.
-      tf.scalar_summary('learning_rate', lr)
+      # tf.scalar_summary('learning_rate', lr)
 
       # Create an optimizer that performs gradient descent.
       opt = tf.train.RMSPropOptimizer(lr,
@@ -169,12 +168,12 @@ def train(target, dataset, cluster_spec):
 
         # Attach a scalar summmary to all individual losses and the total loss;
         # do the same for the averaged version of the losses.
-        for l in losses + [total_loss]:
-          loss_name = l.op.name
-          # Name each loss as '(raw)' and name the moving average version of the
-          # loss as the original loss name.
-          tf.scalar_summary(loss_name + ' (raw)', l)
-          tf.scalar_summary(loss_name, loss_averages.average(l))
+        # for l in losses + [total_loss]:
+        #   loss_name = l.op.name
+        #    # Name each loss as '(raw)' and name the moving average version of the
+        #    # loss as the original loss name.
+        #    tf.scalar_summary(loss_name + ' (raw)', l)
+        #    tf.scalar_summary(loss_name, loss_averages.average(l))
 
         # Add dependency to compute loss_averages.
         with tf.control_dependencies([loss_averages_op]):
@@ -192,14 +191,13 @@ def train(target, dataset, cluster_spec):
           tf.trainable_variables() + tf.moving_average_variables())
 
       # Add histograms for model variables.
-      for var in variables_to_average:
-        tf.histogram_summary(var.op.name, var)
+      # for var in variables_to_average:
+      #    tf.histogram_summary(var.op.name, var)
 
       # Create synchronous replica optimizer.
       opt = tf.train.SyncReplicasOptimizer(
           opt,
           replicas_to_aggregate=num_replicas_to_aggregate,
-          replica_id=FLAGS.task_id,
           total_num_replicas=num_workers,
           variable_averages=exp_moving_averager,
           variables_to_average=variables_to_average)
@@ -215,9 +213,9 @@ def train(target, dataset, cluster_spec):
       grads = opt.compute_gradients(total_loss)
 
       # Add histograms for gradients.
-      for grad, var in grads:
-        if grad is not None:
-          tf.histogram_summary(var.op.name + '/gradients', grad)
+      # for grad, var in grads:
+      #    if grad is not None:
+      #      tf.histogram_summary(var.op.name + '/gradients', grad)
 
       apply_gradients_op = opt.apply_gradients(grads, global_step=global_step)
 
@@ -229,13 +227,12 @@ def train(target, dataset, cluster_spec):
       # More details can be found in sync_replicas_optimizer.
       chief_queue_runners = [opt.get_chief_queue_runner()]
       init_tokens_op = opt.get_init_tokens_op()
-      clean_up_op = opt.get_clean_up_op()
 
       # Create a saver.
       saver = tf.train.Saver()
 
       # Build the summary operation based on the TF collection of Summaries.
-      summary_op = tf.merge_all_summaries()
+      # summary_op = tf.merge_all_summaries()
 
       # Build an initialization operation to run below.
       init_op = tf.initialize_all_variables()
@@ -275,37 +272,18 @@ def train(target, dataset, cluster_spec):
       # specified interval. Note that the summary_op and train_op never run
       # simultaneously in order to prevent running out of GPU memory.
       next_summary_time = time.time() + FLAGS.save_summaries_secs
+      profile_step = 60
       step = 0
-      while (not sv.should_stop()) and step<=2000:
+      while not sv.should_stop() and step <= 2000:
         try:
-
           start_time = time.time()
-          run_metadata = tf.RunMetadata()        
-          profile_step = 60
-          trace_done = False
-          
-          if step == profile_step:
-            tf.logging.info("Tracing at step %d" % step)
-            loss_value, step = sess.run(
-                    [train_op, global_step],
-                    options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE),
-                    run_metadata=run_metadata)
-            trace_done = True
-          else:
-            loss_value, step = sess.run([train_op, global_step])
-
+          loss_value, step = sess.run([train_op, global_step])
           duration = time.time() - start_time
-
-          if trace_done:
-            trace = timeline.Timeline(step_stats=run_metadata.step_stats)
-            trace_file = open('/tmp/timeline.ctf.json', 'w')
-            trace_file.write(trace.generate_chrome_trace_format())
-            trace_file.close()
-
           assert not np.isnan(loss_value), 'Model diverged with loss = NaN'
           if step > FLAGS.max_steps:
             break
 
+          # TODO(xpan): Is the time sec? Seems to accurate?
           examples_per_sec = FLAGS.batch_size / float(duration)
           format_str = ('Worker %d: %s: step %d, loss = %.2f'
                         '(%.1f examples/sec; %.3f  sec/batch)')
@@ -316,21 +294,9 @@ def train(target, dataset, cluster_spec):
           else:
             tf.logging.info('Not considering step %d (%.1f samples/sec)' %
                             (step, examples_per_sec))
-
-
-          # Determine if the summary_op should be run on the chief worker.
-#           if is_chief and next_summary_time < time.time():
-#             tf.logging.info('Running Summary operation on the chief.')
-#             summary_str = sess.run(summary_op)
-#             sv.summary_computed(sess, summary_str)
-#             tf.logging.info('Finished running Summary operation.')
-# 
-#             # Determine the next time for running the summary.
-#             next_summary_time += FLAGS.save_summaries_secs
         except:
           if is_chief:
             tf.logging.info('About to execute sync_clean_up_op!')
-            sess.run(clean_up_op)
           raise
 
       # Stop the supervisor.  This also waits for service threads to finish.

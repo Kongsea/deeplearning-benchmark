@@ -40,8 +40,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -425,7 +425,7 @@ def batch_inputs(dataset, batch_size, train, num_preprocess_threads=None,
     ValueError: if data is not found
   """
   with tf.name_scope('batch_processing'):
-
+    # Reshape images into these desired dimensions.
     height = FLAGS.image_size
     width = FLAGS.image_size
     depth = 3
@@ -435,8 +435,6 @@ def batch_inputs(dataset, batch_size, train, num_preprocess_threads=None,
     
     synthetic_images = tf.cast(tf.convert_to_tensor(synthetic_images), tf.float32)
     synthetic_labels = tf.cast(tf.convert_to_tensor(synthetic_labels), tf.int32)
-    
-    # Display the training images in the visualizer.
-    #tf.image_summary('images', images)
-
+  
     return synthetic_images, synthetic_labels
+
