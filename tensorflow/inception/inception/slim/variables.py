@@ -240,7 +240,7 @@ def global_step(device=''):
     # Get the device for the variable.
     with tf.device(variable_device(device, 'global_step')):
       return tf.get_variable('global_step', shape=[], dtype=tf.int64,
-                             initializer=tf.zeros_initializer,
+                             initializer=tf.constant_initializer(0),
                              trainable=False, collections=collections)
 
 

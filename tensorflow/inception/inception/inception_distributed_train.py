@@ -118,7 +118,7 @@ def train(target, dataset, cluster_spec):
         device=slim.variables.VariableDeviceChooser(num_parameter_servers)):
       # Create a variable to count the number of train() calls. This equals the
       # number of updates applied to the variables.
-      global_step = tf.Variable(0, name="global_step", trainable=False)
+      global_step = slim.variables.global_step()
 
       # Calculate the learning rate schedule.
       num_batches_per_epoch = (dataset.num_examples_per_epoch() /
