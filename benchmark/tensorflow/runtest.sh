@@ -123,7 +123,7 @@ while [ $executed -eq 0 ]; do
         sleep 30
     
         num_running=`bash runincluster.sh -h $NODES_FILE -n $NUM_NODES -c "ps -ef | grep ps_hosts | grep -v grep | wc -l" | awk '{s+=$1} END {print s}'`
-        expected_running=$(($NUM_NODES*(GPU_PER_NODE+1)))
+        expected_running=$(($NUM_NODES*2))
         if [ ${num_running} -ne ${expected_running} ] ; then
             echo "Some process died unexpectedly. Restart this test."
             bash killall.sh -h $NODES_FILE

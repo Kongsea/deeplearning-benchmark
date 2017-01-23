@@ -1,0 +1,92 @@
+I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcublas.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcufft.so.8.0 locally
+I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcurand.so.8.0 locally
+INFO:tensorflow:PS hosts are: ['10.0.0.154:2222', '10.0.1.38:2222']
+INFO:tensorflow:Worker hosts are: ['10.0.0.154:2230', '10.0.0.154:2231', '10.0.0.154:2232', '10.0.0.154:2233', '10.0.0.154:2234', '10.0.0.154:2235', '10.0.0.154:2236', '10.0.0.154:2237', '10.0.1.38:2230', '10.0.1.38:2231', '10.0.1.38:2232', '10.0.1.38:2233', '10.0.1.38:2234', '10.0.1.38:2235', '10.0.1.38:2236', '10.0.1.38:2237']
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:910] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:18.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:18.0)
+I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> 10.0.0.154:2222, 1 -> 10.0.1.38:2222}
+I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> 10.0.0.154:2230, 1 -> 10.0.0.154:2231, 2 -> 10.0.0.154:2232, 3 -> 10.0.0.154:2233, 4 -> 10.0.0.154:2234, 5 -> 10.0.0.154:2235, 6 -> 10.0.0.154:2236, 7 -> 10.0.0.154:2237, 8 -> 10.0.1.38:2230, 9 -> localhost:2231, 10 -> 10.0.1.38:2232, 11 -> 10.0.1.38:2233, 12 -> 10.0.1.38:2234, 13 -> 10.0.1.38:2235, 14 -> 10.0.1.38:2236, 15 -> 10.0.1.38:2237}
+I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:219] Started server with target: grpc://localhost:2231
+WARNING:tensorflow:From /tmp/inception/inception/inception_model.py:118: concat (from tensorflow.python.ops.array_ops) is deprecated and will be removed after 2016-12-14.
+Instructions for updating:
+This op will be removed after the deprecation date. Please switch to tf.concat_v2().
+INFO:tensorflow:SyncReplicasV2: replicas_to_aggregate=16; total_num_replicas=16
+WARNING:tensorflow:From /tmp/inception/inception/inception_distributed_train.py:238: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+INFO:tensorflow:2017-01-23 21:09:45.986593 Supervisor
+I tensorflow/core/distributed_runtime/master_session.cc:1011] Start master session c1928097b4569892 with config: 
+allow_soft_placement: true
+
+INFO:tensorflow:Started 0 queues for processing input data.
+INFO:tensorflow:Not considering step 0 (1.0 samples/sec)
+INFO:tensorflow:Not considering step 0 (10.4 samples/sec)
+INFO:tensorflow:Not considering step 1 (9.4 samples/sec)
+INFO:tensorflow:Not considering step 1 (11.0 samples/sec)
+INFO:tensorflow:Not considering step 2 (6.0 samples/sec)
+INFO:tensorflow:Not considering step 3 (4.4 samples/sec)
+INFO:tensorflow:Not considering step 4 (6.3 samples/sec)
+INFO:tensorflow:Not considering step 5 (6.4 samples/sec)
+INFO:tensorflow:Not considering step 6 (6.5 samples/sec)
+INFO:tensorflow:Not considering step 7 (6.4 samples/sec)
+INFO:tensorflow:Not considering step 8 (6.4 samples/sec)
+INFO:tensorflow:Not considering step 9 (6.4 samples/sec)
+INFO:tensorflow:Worker 9: 2017-01-23 21:10:49.457148: step 10, loss = 8.54(6.5 examples/sec; 2.463  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:10:51.938605: step 11, loss = 8.64(6.4 examples/sec; 2.481  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:10:54.400887: step 12, loss = 8.48(6.5 examples/sec; 2.462  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:10:56.918671: step 13, loss = 8.47(6.4 examples/sec; 2.517  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:10:59.559734: step 14, loss = 8.62(6.1 examples/sec; 2.641  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:02.089178: step 15, loss = 8.66(6.3 examples/sec; 2.529  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:04.611648: step 16, loss = 8.63(6.3 examples/sec; 2.521  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:07.081365: step 17, loss = 8.50(6.5 examples/sec; 2.469  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:09.665849: step 18, loss = 8.40(6.2 examples/sec; 2.584  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:12.174714: step 19, loss = 8.45(6.4 examples/sec; 2.507  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:14.674508: step 20, loss = 8.27(6.4 examples/sec; 2.499  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:17.141755: step 21, loss = 8.22(6.5 examples/sec; 2.466  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:19.607374: step 22, loss = 8.09(6.5 examples/sec; 2.465  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:22.233910: step 23, loss = 8.06(6.1 examples/sec; 2.626  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:24.852530: step 24, loss = 7.97(6.1 examples/sec; 2.618  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:27.386366: step 25, loss = 7.74(6.3 examples/sec; 2.533  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:29.859293: step 26, loss = 7.61(6.5 examples/sec; 2.472  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:32.394789: step 27, loss = 7.56(6.3 examples/sec; 2.535  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:34.945336: step 28, loss = 7.55(6.3 examples/sec; 2.550  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:37.305314: step 29, loss = 7.47(6.8 examples/sec; 2.359  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:39.795370: step 30, loss = 7.40(6.4 examples/sec; 2.490  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:42.283575: step 31, loss = 7.48(6.4 examples/sec; 2.488  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:44.698056: step 32, loss = 7.34(6.6 examples/sec; 2.414  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:47.255721: step 33, loss = 7.19(6.3 examples/sec; 2.557  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:49.821065: step 34, loss = 7.00(6.2 examples/sec; 2.565  sec/batch)
+INFO:tensorflow:Worker 9: 2017-01-23 21:11:52.246895: step 35, loss = 6.95(6.6 examples/sec; 2.424  sec/batch)
+Traceback (most recent call last):
+  File "imagenet_distributed_train.py", line 65, in <module>
+    tf.app.run()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "imagenet_distributed_train.py", line 61, in main
+    inception_distributed_train.train(server.target, dataset, cluster_spec)
+  File "/tmp/inception/inception/inception_distributed_train.py", line 280, in train
+    loss_value, step = sess.run([train_op, global_step])
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 767, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 965, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1015, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1035, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.UnavailableError: {"created":"@1485205914.737981449","description":"EOF","file":"external/grpc/src/core/lib/iomgr/tcp_posix.c","file_line":235,"grpc_status":14}

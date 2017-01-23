@@ -18,9 +18,7 @@ def get_nodes(nodes_file):
 def get_worker_list(nodes, gpu_per_node):
     lst = []
     for node in nodes:
-        for index in range(gpu_per_node):
-            port = str(2230 + (index%gpu_per_node))
-            lst.append( node + ":" + port )
+      lst.append( node + ":2230" )
     return ','.join(lst)
 
 def get_ps_list(nodes):
@@ -50,19 +48,19 @@ def get_script(script_name, remote_dir, workers_list, ps_list, index, batch_size
                 
     script += "\n\n"
 
-    for i in range(gpu_per_node):    
-        script += "CUDA_VISIBLE_DEVICES='" + str(i) + "' " \
+#     for i in range(gpu_per_node):    
+    script += "" \
                     + "python " + script_name + " " \
                     + "--batch_size=" + str(batch_size) + " --data_dir=notused " \
                     + "--ps_hosts=" + ps_list + " " \
                     + "--worker_hosts=" + workers_list + " " \
                     + "--job_name=worker " \
-                    + "--task_id=" + str(index*gpu_per_node + i) \
-                    + " > /tmp/worker" + str(index*gpu_per_node + i) \
+                    + "--task_id=" + str(index) \
+                    + " > /tmp/worker" + str(index) \
                     + " 2>&1" \
                     + " &"
                 
-        script += "\n\n"
+    script += "\n\n"
     
     return script    
 
@@ -90,7 +88,9 @@ def gen_scripts(model, nodes_file, remote_dir, gen_dir_rel, num_nodes, gpu_per_n
     ps_list = get_ps_list(nodes)
 
     for index, host in enumerate(nodes):
+        sys.stderr.write('%d %s\n' % (index, host))
         script = get_script(get_script_name(model), remote_dir, workers_list, ps_list, index, batch_size, gpu_per_node)
+        sys.stderr.write('\n\n%s\n\n' % script)
         file_name = gen_dir_rel + "/" + str(index+1) + ".sh"
         with open(file_name, "w") as sh_file:
             sh_file.write(script)
