@@ -135,6 +135,38 @@ while read line; do
 done
 
 
+echo "Compressing MXNet"
+rm -f mxnet.tar.gz
+tar -cvzf mxnet.tar.gz ./mxnet > /dev/null 2>&1
+
+echo "Copying MXNet to remote nodes..."
+head -$HOSTS_COUNT $HOSTS |
+while read line; do
+    if [ -z line ]; then continue; fi
+    arr=( $line )
+    ssh_alias=${arr[1]}
+
+    scp -o "StrictHostKeyChecking no" mxnet.tar.gz $ssh_alias:$REMOTE_DIR
+    scp -o "StrictHostKeyChecking no" hostnames $ssh_alias:$REMOTE_DIR
+    ssh -o "StrictHostKeyChecking no" $ssh_alias 'cd '${REMOTE_DIR}' && tar -xvzf mxnet.tar.gz > /dev/null 2>&1' &
+done
+
+# Construct the models string for MXNet 
+mxnet_model_string=$MODELS
+mxnet_model_string=`echo $mxnet_model_string | sed "s/Alexnet/alexnet/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/Inceptionv3/inception-v3/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/Resnet/resnet/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/inception-v3:[0-9]*/&:299/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/alexnet:[0-9]*/&:224/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/resnet:[0-9]*/&:224/g"`
+mxnet_model_string=`echo $mxnet_model_string | sed "s/,/' '/g"`
+mxnet_model_string="'"${mxnet_model_string}"'"
+
+# Construct the command to run MXNet tests
+image_recog_dir="${REMOTE_DIR}/mxnet/example/image-classification/"
+mxnet_command="cd $image_recog_dir && python benchmark.py --worker_file ${REMOTE_DIR}/hostnames --worker_count ${HOSTS_COUNT} --gpu_count ${GPU_PER_HOST} --networks ${mxnet_model_string}"
+echo $mxnet_command
+
 # Run TensorFlow
 rm -rf csv_tf
 mkdir csv_tf

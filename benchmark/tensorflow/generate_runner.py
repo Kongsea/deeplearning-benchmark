@@ -18,7 +18,7 @@ def get_nodes(nodes_file):
 def get_worker_list(nodes, gpu_per_node):
     lst = []
     for node in nodes:
-      lst.append( node + ":2230" )
+      lst.append( node + ":2230")
     return ','.join(lst)
 
 def get_ps_list(nodes):
@@ -48,9 +48,9 @@ def get_script(script_name, remote_dir, workers_list, ps_list, index, batch_size
                 
     script += "\n\n"
 
-#     for i in range(gpu_per_node):    
     script += "" \
                     + "python " + script_name + " " \
+                    + "--num_gpus=" + str(gpu_per_node) + " " \
                     + "--batch_size=" + str(batch_size) + " --data_dir=notused " \
                     + "--ps_hosts=" + ps_list + " " \
                     + "--worker_hosts=" + workers_list + " " \
