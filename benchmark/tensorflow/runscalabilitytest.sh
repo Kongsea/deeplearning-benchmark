@@ -37,7 +37,7 @@ shift # past argument or value
 done
 
 
-ngpu=16
+ngpu=1
 gpu_list=""
 while [ "$ngpu" -le "$MAX_GPUS" ]; do
     echo "Running with $ngpu GPUs"
