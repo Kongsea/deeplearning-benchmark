@@ -25,7 +25,8 @@ def get_ps_list(nodes):
     return ','.join( [n + ":2222" for n in nodes] )
     
 def get_script(script_name, remote_dir, workers_list, ps_list, index, batch_size, gpu_per_node):
-   
+
+    sys.stderr.write('%s\n' % os.path.dirname(os.path.realpath(__file__)))
     script = ''
 
     script += 'rm -rf /tmp/imagenet_train/'
@@ -37,11 +38,14 @@ def get_script(script_name, remote_dir, workers_list, ps_list, index, batch_size
 
     script += '\n\n'
     
-    script += "CUDA_VISIBLE_DEVICES='' python " + script_name + " " \
+    script += "CUDA_VISIBLE_DEVICES='' python /tmp/tf_cnn_benchmarks.py " \
+                + "--model=inception3 " \
+                + "--batch_size=" + str(batch_size) + " " \
                 + "--ps_hosts=" + ps_list + " " \
                 + "--worker_hosts=" + workers_list + " " \
                 + "--job_name=ps " \
-                + "--task_id=" + str(index) \
+                + "--task_id=" + str(index) + " " \
+                + "--num_batches=30 --data_format=NCHW --display_every=2 --weak_scaling=true --parameter_server=cpu --device=gpu " \
                 + " > /tmp/ps" + str(index) \
                 + " 2>&1" \
                 + " &" 
@@ -49,13 +53,15 @@ def get_script(script_name, remote_dir, workers_list, ps_list, index, batch_size
     script += "\n\n"
 
     script += "" \
-                    + "python " + script_name + " " \
-                    + "--num_gpus=" + str(gpu_per_node) + " " \
-                    + "--batch_size=" + str(batch_size * gpu_per_node) + " --data_dir=notused " \
+                    + "python /tmp/tf_cnn_benchmarks.py " \
+                    + "--model=inception3 " \
+                    + "--batch_size=" + str(batch_size) + " " \
                     + "--ps_hosts=" + ps_list + " " \
                     + "--worker_hosts=" + workers_list + " " \
                     + "--job_name=worker " \
-                    + "--task_id=" + str(index) \
+                    + "--task_id=" + str(index) + " "\
+                    + "--num_batches=30 --data_format=NCHW --display_every=2 --weak_scaling=true --parameter_server=cpu --device=gpu " \
+                    + "--num_gpus=" + str(gpu_per_node) + " " \
                     + " > /tmp/worker" + str(index) \
                     + " 2>&1" \
                     + " &"

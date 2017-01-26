@@ -1,0 +1,155 @@
+2017-01-26 04:44:17: I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcublas.so.8.0 locally
+2017-01-26 04:44:17: I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcudnn.so.5 locally
+2017-01-26 04:44:17: I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcufft.so.8.0 locally
+2017-01-26 04:44:17: I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcuda.so.1 locally
+2017-01-26 04:44:17: I tensorflow/stream_executor/dso_loader.cc:125] successfully opened CUDA library libcurand.so.8.0 locally
+2017-01-26 04:44:17: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-01-26 04:44:17: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-01-26 04:44:17: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-01-26 04:44:17: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-01-26 04:44:40: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:40: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:17.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:40: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x296c020
+2017-01-26 04:44:40: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:40: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 1 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:18.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:40: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x296f9a0
+2017-01-26 04:44:40: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:40: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 2 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:19.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:40: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x2973320
+2017-01-26 04:44:40: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:40: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 3 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:1a.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:40: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x2976ca0
+2017-01-26 04:44:40: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:40: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 4 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:1b.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:40: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x297a620
+2017-01-26 04:44:41: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 5 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:1c.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:41: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x297dfa0
+2017-01-26 04:44:41: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 6 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:1d.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:41: W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x2981920
+2017-01-26 04:44:41: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:911] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 7 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:00:1e.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 1 2 3 4 5 6 7 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 1:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 2:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 3:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 4:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 5:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 6:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 7:   Y Y Y Y Y Y Y Y 
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:17.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:1) -> (device: 1, name: Tesla K80, pci bus id: 0000:00:18.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:2) -> (device: 2, name: Tesla K80, pci bus id: 0000:00:19.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:3) -> (device: 3, name: Tesla K80, pci bus id: 0000:00:1a.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:4) -> (device: 4, name: Tesla K80, pci bus id: 0000:00:1b.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:5) -> (device: 5, name: Tesla K80, pci bus id: 0000:00:1c.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:6) -> (device: 6, name: Tesla K80, pci bus id: 0000:00:1d.0)
+2017-01-26 04:44:41: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:7) -> (device: 7, name: Tesla K80, pci bus id: 0000:00:1e.0)
+2017-01-26 04:44:42: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> 10.0.0.177:2222}
+2017-01-26 04:44:42: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> localhost:2230}
+2017-01-26 04:44:42: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:239] Started server with target: grpc://localhost:2230
+Creating Supervisor
+Preparing session.
+2017-01-26 04:45:55: I tensorflow/core/distributed_runtime/master_session.cc:1012] Start master session 5b640729fbfb37e9 with config: 
+intra_op_parallelism_threads: 1
+gpu_options {
+}
+allow_soft_placement: true
+
+2017-01-26 04:45:56: I tensorflow/core/platform/default/cuda_libdevice_path.cc:35] TEST_SRCDIR environment variable not set: using local_config_cuda/cuda under this executable's runfiles directory as the CUDA root.
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/platform_util.cc:58] platform CUDA present with 8 visible devices
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/platform_util.cc:58] platform Host present with 32 visible devices
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:180] XLA service executing computations on platform Host. Devices:
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (0): <undefined>, <undefined>
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/platform_util.cc:58] platform CUDA present with 8 visible devices
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/platform_util.cc:58] platform Host present with 32 visible devices
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:180] XLA service executing computations on platform CUDA. Devices:
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (0): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (1): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (2): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (3): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (4): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (5): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (6): Tesla K80, Compute Capability 3.7
+2017-01-26 04:45:56: I tensorflow/compiler/xla/service/service.cc:187]   StreamExecutor device (7): Tesla K80, Compute Capability 3.7
+Done creating supervisor
+starting prefetchers.
+started prefetchers.
+Worker 0: 2017-01-26 04:47:18.727626: step 10, loss = 5.68(107.7 examples/sec; 1.189  sec/batch)
+Worker 0: 2017-01-26 04:47:20.024494: step 11, loss = 5.56(98.8 examples/sec; 1.296  sec/batch)
+Worker 0: 2017-01-26 04:47:21.267376: step 12, loss = 5.47(103.0 examples/sec; 1.243  sec/batch)
+Worker 0: 2017-01-26 04:47:22.514676: step 13, loss = 5.38(102.7 examples/sec; 1.247  sec/batch)
+Worker 0: 2017-01-26 04:47:23.759663: step 14, loss = 5.31(102.8 examples/sec; 1.245  sec/batch)
+Worker 0: 2017-01-26 04:47:25.152427: step 15, loss = 5.25(91.9 examples/sec; 1.392  sec/batch)
+Worker 0: 2017-01-26 04:47:26.411247: step 16, loss = 5.20(101.7 examples/sec; 1.259  sec/batch)
+Worker 0: 2017-01-26 04:47:27.657565: step 17, loss = 5.16(102.7 examples/sec; 1.246  sec/batch)
+Worker 0: 2017-01-26 04:47:28.941763: step 18, loss = 5.12(99.7 examples/sec; 1.284  sec/batch)
+Worker 0: 2017-01-26 04:47:30.242963: step 19, loss = 5.10(102.9 examples/sec; 1.243  sec/batch)
+Worker 0: 2017-01-26 04:47:31.462175: step 20, loss = 5.07(105.0 examples/sec; 1.219  sec/batch)
+Worker 0: 2017-01-26 04:47:32.738772: step 21, loss = 5.06(100.3 examples/sec; 1.276  sec/batch)
+Worker 0: 2017-01-26 04:47:33.969574: step 22, loss = 5.04(104.0 examples/sec; 1.231  sec/batch)
+Worker 0: 2017-01-26 04:47:35.216351: step 23, loss = 5.03(102.7 examples/sec; 1.247  sec/batch)
+Worker 0: 2017-01-26 04:47:36.415719: step 24, loss = 5.02(106.7 examples/sec; 1.199  sec/batch)
+Worker 0: 2017-01-26 04:47:37.657911: step 25, loss = 5.01(103.1 examples/sec; 1.242  sec/batch)
+Worker 0: 2017-01-26 04:47:38.914533: step 26, loss = 5.01(101.9 examples/sec; 1.256  sec/batch)
+Worker 0: 2017-01-26 04:47:40.150434: step 27, loss = 5.00(103.6 examples/sec; 1.236  sec/batch)
+Worker 0: 2017-01-26 04:47:41.361770: step 28, loss = 4.99(105.7 examples/sec; 1.211  sec/batch)
+Worker 0: 2017-01-26 04:47:42.594485: step 29, loss = 4.99(103.8 examples/sec; 1.233  sec/batch)
+Worker 0: 2017-01-26 04:47:43.847469: step 30, loss = 4.99(102.2 examples/sec; 1.253  sec/batch)
+Worker 0: 2017-01-26 04:47:45.089417: step 31, loss = 4.98(103.1 examples/sec; 1.242  sec/batch)
+Worker 0: 2017-01-26 04:47:46.350297: step 32, loss = 4.98(101.5 examples/sec; 1.261  sec/batch)
+Worker 0: 2017-01-26 04:47:47.580165: step 33, loss = 4.98(104.1 examples/sec; 1.230  sec/batch)
+Worker 0: 2017-01-26 04:47:48.872695: step 34, loss = 4.97(99.0 examples/sec; 1.292  sec/batch)
+Worker 0: 2017-01-26 04:47:50.108616: step 35, loss = 4.97(103.6 examples/sec; 1.236  sec/batch)
+Worker 0: 2017-01-26 04:47:51.336113: step 36, loss = 4.97(104.3 examples/sec; 1.227  sec/batch)
+Worker 0: 2017-01-26 04:47:52.561046: step 37, loss = 4.97(104.5 examples/sec; 1.225  sec/batch)
+Worker 0: 2017-01-26 04:47:53.754213: step 38, loss = 4.97(107.3 examples/sec; 1.193  sec/batch)
+Worker 0: 2017-01-26 04:47:54.985212: step 39, loss = 4.97(104.0 examples/sec; 1.231  sec/batch)
+Worker 0: 2017-01-26 04:47:56.204455: step 40, loss = 4.97(105.0 examples/sec; 1.219  sec/batch)
+Worker 0: 2017-01-26 04:47:57.531671: step 41, loss = 4.97(96.5 examples/sec; 1.327  sec/batch)
+Worker 0: 2017-01-26 04:47:58.752010: step 42, loss = 4.96(104.9 examples/sec; 1.220  sec/batch)
+Worker 0: 2017-01-26 04:48:00.024497: step 43, loss = 4.96(100.6 examples/sec; 1.272  sec/batch)
+Worker 0: 2017-01-26 04:48:01.292785: step 44, loss = 4.96(100.9 examples/sec; 1.268  sec/batch)
+Worker 0: 2017-01-26 04:48:02.542901: step 45, loss = 4.96(102.4 examples/sec; 1.250  sec/batch)

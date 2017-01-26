@@ -88,6 +88,7 @@ while read line; do
   arr=( $line )
   ssh_alias=${arr[1]}
   scp -o "StrictHostKeyChecking no" gen/${index}.sh ${ssh_alias}:${RUNNER_DEST}/runner.sh
+  scp -o "StrictHostKeyChecking no" tf_cnn_benchmarks.py ${ssh_alias}:/tmp/tf_cnn_benchmarks.py
   let "index++"
 done
 
